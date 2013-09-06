@@ -7,6 +7,23 @@ body {
 a {
   color: #227ce8; }
 
+
+img#avatar_large {
+  width: 550px; 
+}
+
+h1 small {
+  color: gray;
+  padding-left: 10px;
+  font-size: 70%;
+}
+
+.monospace {
+  font-family: monospace;
+  line-height: 1.3em;
+  font-size: 1.3em;
+}
+
 .sidebar {
   position: fixed;
   left: 15px;

@@ -1,14 +1,26 @@
 ---
 layout: layout
-title: "Posts"
+title: "About"
 ---
 
+<!-- You can edit this whole page, remove it, or use it as basis for any non-post pages you have. -->
 <section class="content">
-  <ul class="listing">
-    {% for post in site.posts %}
-    <li>
-      <span>{{ post.date | date: "%B %e, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-  </ul>
+  <h1>{{ site.name }}<small>Web developer, comp sci student</small></h1>
+  <img src="/images/avatar_large.jpg" alt="Philip Hale" id="avatar_large" />
+
+  <p>
+    Hi, welcome to my site.
+  </p>
+  <p>
+    If something interesting comes up in a project, I'll post about it here.
+  </p>
+  <p>
+    You can see what I'm working on at the moment on the 'projects' page or by
+    looking at my github feed.
+  </p>
+  <p>
+  <a href="mailto:{{ site.email }}">Email</a> or
+  <a href="https://twitter.com/{{ site.twitter }}"> tweet</a> me to get in
+  touch for any reason.
+  </p>
 </section>
