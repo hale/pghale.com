@@ -10,7 +10,11 @@
   </title>
 
   <meta name="author" content="{{ site.name }}" />
-  <meta name="description" content="{{ site.description }}" />
+  {% if page.description %}
+    <meta name="description" content="{{ page.description }}" />
+  {% else %}
+    <meta name="description" content="{{ site.description }}" />
+  {% endif %}
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <link rel="alternate" type="application/rss+xml" href="/atom.xml" />

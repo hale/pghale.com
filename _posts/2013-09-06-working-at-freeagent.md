@@ -2,6 +2,7 @@
 layout: post
 title: Working at FreeAgent
 category: posts
+description: My experience as an engineering intern at FreeAgent, Edinburgh.
 ---
 
 [![FreeAgent](/images/freeagent_logo.png)][freeagent]
