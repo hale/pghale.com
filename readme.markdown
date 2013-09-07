@@ -1,3 +1,3 @@
 Static site for [pghale.com](http://www.pghale.com/).
 
-Powered by jekyll, GitHub Pages and Zach Holman's 'Left' theme.
+Powered by Jekyll, NearlyFreeSpeech.NET and Zach Holman's 'Left' theme.
