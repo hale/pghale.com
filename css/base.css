@@ -12,6 +12,12 @@ img#avatar_large {
   width: 550px; 
 }
 
+.content img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 h1 small {
   color: gray;
   padding-left: 10px;
