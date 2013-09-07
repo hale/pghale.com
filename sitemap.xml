@@ -5,7 +5,12 @@ layout: nil
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>{{ site.url }}</loc>
-        <loc>{{ site.url}}/about</loc>
+    </url>
+    <url>
+      <loc>{{ site.url}}/about</loc>
+    </url>
+    <url>
+      <loc>{{ site.url}}/posts</loc>
     </url>
 
     {% for post in site.posts %}
