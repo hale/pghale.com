@@ -1,0 +1,70 @@
+---
+layout: layout
+title: Latest Open Source Contributions
+description: Live stream of my data from GitHub showing my open source software contributions.
+permalink: /open-source/
+---
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js"></script>
+<script src="//d3js.org/d3.v3.min.js"></script>
+
+<script src="/js/github_activity.js"></script>
+<script type="text/javascript" src="/js/cal-heatmap.min.js"></script>
+
+<link rel="stylesheet" href="/css/cal-heatmap.css" />
+
+<section class="content">
+<h1>Open-source contributions</h1>
+
+<p>GitHub is a platform to share code and work on code with others. This pages
+shows my recent contributions to open-source software projects, taken from
+<a href="https://github.com/hale">my GitHub profile</a>.</p>
+
+<h2>Commits</h2>
+<div id="cal-heatmap">
+</div>
+
+<h2>Pull requests</h2>
+<table>
+  <div id="github-activity"></div>
+</table>
+
+</section>
+<script type="text/javascript" charset="utf-8">
+  jQuery(document).ready(function() {
+
+    var cal = new CalHeatMap();
+    var today = new Date();
+    cal.init({
+      data: "/data/github/data.json",
+      domain: "day",
+      subDomain: "hour",
+      start: new Date().setDate(today.getDate() - 12),
+      legend: [1, 2, 3, 4],
+      range: 12
+    });
+
+    GithubActivity.show_activity('hale', '#github-activity', '30', '#github-template');
+
+  });
+</script>
+
+<script type="text/template" id="github-template">
+  <% if ( type == "PullRequestEvent" ) { %>
+  <tr>
+    <td style="width: 5em;">
+      <%= repository.pushed_at.substring(0, 10) %>:
+    </td>
+    <td style="width: 4em; text-align: right; padding-right: 3px;">
+      <%= payload.action %>
+    </td>
+    <td style="padding-right: 6px;">
+      <a href="<%= payload.pull_request.html_url %>"><%= payload.pull_request.title.substring(0,40) + '...' %></a>
+    </td>
+    <td>
+      on <a href="<%= repository.url %>"> <%= repository.name %></a>.
+    </td>
+  </tr>
+  <% } %>
+</script>
