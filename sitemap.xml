@@ -7,13 +7,13 @@ layout: nil
         <loc>{{ site.url }}</loc>
     </url>
     <url>
-      <loc>{{ site.url}}/about</loc>
-    </url>
-    <url>
       <loc>{{ site.url}}/posts</loc>
     </url>
     <url>
       <loc>{{ site.url}}/productivity</loc>
+    </url>
+    <url>
+      <loc>{{ site.url}}/open-source</loc>
     </url>
 
     {% for post in site.posts %}

@@ -6,27 +6,6 @@ body {
 
 a {
   color: #227ce8; }
-
-img#avatar_large {
-  width: 550px; 
-}
-
-.content img {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-h1 small {
-  color: gray;
-  padding-left: 10px;
-  font-size: 70%;
-}
-
-.sidebar .meta a span {
-  font-size: smaller;
-}
-
 .sidebar {
   position: fixed;
   left: 15px;
@@ -83,7 +62,7 @@ h1 small {
 
 .content {
   max-width: 650px;
-  margin-left: 110px;
+  margin-left: 120px;
   margin-right: 20px;
   margin-bottom: 50px; }
   .content h1 {
@@ -224,4 +203,97 @@ h1 small {
     font-size: 12px;
     font-weight: bold; }
   .content .talk-design .color .white {
-    color: #fff; }
+    color: #fff; 
+}
+
+// custom styles
+
+img#avatar_large {
+  width: 550px; 
+}
+
+.content img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto; 
+}
+
+.content .about-item {
+  margin-bottom: 4em;
+}
+
+.content .about-item:last-child {
+  margin-top: 0;
+  margin-top: 0;
+}
+
+.content .about-item:first-child {
+  margin-top: 0;
+  margin-top: 0;
+}
+
+.content .info {
+  margin-right: auto;
+  margin-left: auto;
+  /*width: 85%;*/
+  margin-bottom: 1em;
+}
+
+.content .info img {
+  border: none;
+  float: left;
+  max-height: 7em;
+  max-width: 10em;
+  padding-top: 6%;
+}
+
+.content .info ul {
+  list-style: none;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.content .info ul span {
+  font-weight: normal;
+}
+
+.content .info li:first-child {
+  font-family: "Yanone Kaffeesatz", Helvetica, sans-serif;
+  font-weight: 400;
+  color: #777;
+  font-size: 25px;
+}
+
+.award {
+  margin: 0px auto;
+}
+
+.content .award img {
+  width: 30%;
+  float: right;
+  border: none;
+}
+
+.content .award span {
+  width: 60%;
+  display: block;
+}
+
+a.to_top {
+  font-size: 0.6em;
+  color: grey !important;
+}
+
+a.to_top:hover {
+  color: black !important;
+}
+
+h1 small {
+  color: gray;
+  padding-left: 10px;
+  font-size: 70%;
+}
+
+.sidebar .meta a span {
+  font-size: smaller;
+}
