@@ -37,11 +37,10 @@ shows my recent contributions to open-source software projects, taken from
     var today = new Date();
     cal.init({
       data: "/data/github/data.json",
-      domain: "day",
-      subDomain: "hour",
-      start: new Date().setDate(today.getDate() - 12),
+      domain: "month",
+      start: new Date().setDate(today.getDate() - 36),
       legend: [1, 2, 3, 4],
-      range: 12
+      range: 4
     });
 
     GithubActivity.show_activity('hale', '#github-activity', '30', '#github-template');
