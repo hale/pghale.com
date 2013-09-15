@@ -1,128 +1,63 @@
 ---
 layout: post
-title: git-log
+title: Git shortcuts
 category: posts
-description: My usage of git-log, aliases etc
+description: Change your workflow with easily repeatable git aliases.
 published: false
 ---
 
+Working in feature branches keeps you focussed on what you're doing and makes it
+easier for your changes to be reviewed and tested.
+
+Therefore, when thinking about development practices as you're righting code
+it's instructive to consider the stage when you're ready to merge in your branch
+and work back from there.
+
+---
+
+I find it's quite difficult to say in advance "I'm going to make these changes
+and then stop and commit".  Typically, you follow a certain path not knowing
+where it will take you.
+
+So it's crucial to frequently check your unstaged changes as you are writing
+code, so you can spot when you're going off track (what to do when you realise
+this is a topic for another post).
+
+I have the following aliases:
+
+### `g`
+
+    git status -sb
+
+![alias g='...'](/images/git_alias_g.png)
+
+The most used git command, and the shorter form gives you the same info using
+less space.
+
+### `gd` and `gdc`
+
+`git diff` for seeing the diff and `git diff --cached` to see which changes
+you've staged (added).
+
+When I have the screen space, the diff is run in a clearing iTerm pane each time a
+file change is detected:
+
+    kicker -c -e "git diff --color" .
+
+(Kicker is a platform-independent gem to monitor filechanges)
+
+### `glg`
+
 ![alias glg='...'](/images/glg_good.png)
 
-According to my zsh history, `glg` is the second most frequent command I use.
-This is aliased to:
+`glg` is the second most frequent command I use. It is aliased to:
 
     git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative master..HEAD
 
-You've probably seen this kind of thing before.
+    # without colours
+    git log --graph --pretty=format:'%h %an: %s - %d (%cr)' --abbrev-commit --date=relative master..HEAD
 
-Of significane is the final argument, which  limits the log to only changes made
-since master.
-
-## Usage
-
-GitHub's pull-requests are so good because they really hammer home the idea of a
-branch being an isolated piece of work which review and apply to your code.
-
-This encourages you to monitor the scope of each change during development, and
-how far-reaching the changes are.
-
-The big win with isolated chunks of work is it allows you to change direction.
-You never really know how a piece of work is going to shape up until it's being
-written, and being able to redefine your objectives at will is hugely
-beneficial. You know when you're getting in a mess, or when you're drifting from
-requirements.
-
-Github is great because it gives you a nice big title and an easily formatted
-description box to explain the requirements and what it should do.  If there's a
-mismatch between the title and the commits, or if the title is vague and
-far-reaching, it's like a canary down a mineshaft.
-
-
-
-## Real world example
-
-The screenshot above shows something I'm working on at the moment with Honolulu
-Answers: 
-
-> Articles have multiple versions so that changes can be made without
-> unpublishing the article.
-
-If you look closely at the commit history, it becomes apparent that things
-started to go wrong.  First the #preview functionality broke, then we're messing
-with authorization, and then slugs too.
-
-This isn't too surprising - breaking the expectation that Article#find returns
-the article we want to show is bound to have knock-on effects.
-
-It's worth asking what you would like a branch called `47-article-versioning` to
-look like.  I wouldn't expect much more than the first few commits - integrate
-the library, tweak it to our needs, and at some point during this work on the UI
-to support the new functionality.
-
-I don't want to add versioning, modify behaviour of slugs, adjust authorixation,
-change the implementation of preview and refactor the articles controllers all
-in one go.
-
-    ### Aside
-
-    You probably noticed my branches and commit messages are prefixed by a number,
-    in this case 47.  This number refers to a Trello card ID on a board used to
-    manage the lifecycle of bugs and feature requests.
-
-At this point I took a step back and fleshed out the requirements in a spec.
-There were too many open questions about how we wanted this to behave - how much
-versioning we really needed - and I wanted to check back in with the other
-stakeholders.
-
-Once I had a better idea of what was required, I could begin to think about how
-it might be implemented.  A common pattern is you identify the high level
-behaviour, and then infer the implicated changes which must be made to support
-it.
-
-A great practice now is to flip it on it's head.  Rather than add the window
-dressing and then build the house, build the house first.
-
-47-article-versioning becomes a mothership story, spawning smaller stories which
-are required before this can go in.
-
-The great thing about this is you can get code written, tested and in production
-- sort of like saying "bank" in the weakest link.
-
-Now we have a new branch with a much narrower focus, that takes some emphasis
-off this.
-
-    64-article-status-separate-fields
-
-    Articles should have three flags for their status rather than one status field.
-    This allows us to say an article is both Published and Draft.
-
-
-
-
-
-
-
-
-Achieving these goals requires thinking about git a little differently.  When
-you're in a feature branch, as far as I'm concerned Anything Goes.
-
-* If you spot two similar commits, reorder so they're next to each other and
-  squash.
-* If a commit message isn't any good, go back and change it.
-* If some commits don't belong here, remove them and put them elsewhere.
-
-Git is a time machine, not a canonical record of your activity.
-
-
-
-* The first line of a commit message encapsulates the change
-
-You shoudln't have to look at the long description (or worse, the diff) in order
-to know what the commit changes.  
-
-* SRP applies to commit messagesEqually this means don't sneak in other
-changes in the commit!  Better to have an extra commit with a single line change
-than a commit that's doing too many things
-
+Of significance is the final argument, which  limits the log to show only
+commits made that diverge from master.
 
 
