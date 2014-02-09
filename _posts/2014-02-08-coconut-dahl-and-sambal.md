@@ -2,7 +2,7 @@
 layout: post
 title: Sri Lankan Coconut Dahl & Tomato Sambal
 category: posts
-description: Recipe and review of a Sri Lankan recipe by Madhur Jaffrey
+description: Recipe and review of a Sri Lankan coconut dahl recipe by Madhur Jaffrey
 ---
 
 ![Finished curry](/images/coconut_dahl.jpg)
