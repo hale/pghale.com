@@ -11,3 +11,14 @@ github: hale
 gravatar_url: https://secure.gravatar.com/avatar/ad36144df4cde05a4b1d9bb3602690bc.png
 email: philip@pghale.com
 linkedin: pghale
+
+## rssgenerator.rb uses the following attributes
+##   name           - the name of the site
+##   url            - the url of the site
+##   description    - (optional) a description for the feed (if not specified will be generated from name)
+##   author         - (optional) the author of the site (if not specified will be left blank)
+##   copyright      - (optional) the copyright of the feed (if not specified will be left blank)
+##   rss_path       - (optional) the path to the feed (if not specified "/" will be used)
+##   rss_name       - (optional) the name of the rss file (if not specified "rss.xml" will be used)
+##   rss_post_limit - (optional) the number of posts in the feed
+#
