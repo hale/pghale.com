@@ -14,9 +14,10 @@ a {
   font-family: Helvetica, sans-serif; }
   .sidebar a {
     text-decoration: none; }
-  .sidebar img {
-    padding: 0 3px;
-    border: 0; }
+  .sidebar img.icon {
+    width: 1em;
+    padding-right: 5px;
+  }
   .sidebar .avatar {
     padding: 0;
     margin-left: 2px;
