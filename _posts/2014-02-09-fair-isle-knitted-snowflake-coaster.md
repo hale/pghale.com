@@ -3,6 +3,7 @@ layout: post
 title: Martin Storey's Fair Isle Knitted Snowflake Coaster
 category: posts
 description: Showing off the finished coaster, a simple pattern by Martin Storey and my first go at Fair Isle knitting.
+published: false
 ---
 
 I've been knitting for about a year, but have so far only made simple objects

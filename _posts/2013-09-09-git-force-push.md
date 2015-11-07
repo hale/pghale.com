@@ -3,6 +3,7 @@ layout: post
 title: It's okay to git push -f
 category: posts
 description: In most situations, git push -f is fine.
+published: false
 ---
 
 When people first start using git, they usually end up running git push -f
