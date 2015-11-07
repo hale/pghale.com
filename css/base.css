@@ -133,11 +133,12 @@ a {
       text-align: right;
       color: #111;
       font-style: normal; }
-  .content .byline {
+  .content .byline,.byline>a{
     margin-bottom: 17px;
     font-family: "Yanone Kaffeesatz", Helvetica, sans-serif;
     padding-left: 0px;
     font-size: 17px;
+    text-decoration: none;
     color: #777; }
   .content .aside {
     background-color: #eeeeee;
@@ -287,4 +288,11 @@ h1 small {
 
 .sidebar .meta a span {
   font-size: smaller;
+}
+
+.sig {
+  margin: 0;
+  border: 0 !important;
+  padding: 0;
+  width: 8em;
 }

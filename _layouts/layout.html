@@ -84,11 +84,22 @@
         </li>
       </ul>
     </section>
-    <img src="/images/pghaleltd_logo.jpg" alt="PG Hale Ltd. Logo" style="width: 5em;" />
-
   </section>
 
-  {{ content }}
+  <section class="content">
+    {% if page.title %}
+      <h1>
+        {{ page.title }}
+        {% if page.small %}
+          <small>{{ page.small }}</small>
+        {% endif %}
+      </h1>
+    {% endif %}
+    {{ content }}
+    <br />
+    <br />
+    <img class="sig" src="/images/pghaleltd_logo.png" alt="PG Hale Ltd. Logo"/>
+  </section>
 </body>
 
 </html>
