@@ -6,6 +6,7 @@ params:
   ProfilePicture: "/images/avatar.jpg"
   Description: "PG Hale Ltd."
   AuthorName: "Phil Hale"
+  subtitle: "Director, PG Hale Ltd."
 
   links:
     - name: "about"

@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -12,64 +12,73 @@
   
 </head>
 <body>
-  <div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
-  <div id = "wrapper">
-    <div class="navbar navbar-default" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="http://localhost:1313//"><p class="navbar-brand">Phil Hale</p></a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-          
-          
-            <li><a href="http://localhost:1313//about">about</a></li>
-          
-            <li><a href="http://localhost:1313//pghaleltd">pghaleltd</a></li>
-          
-            <li><a href="http://localhost:1313//posts">posts</a></li>
-          
-          </ul>
-        </div>
-      </div>
-    </div>
 
-    
-    <div id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <img src="/images/avatar.jpg" />
-        <li class="sidebar-brand"><a href="http://localhost:1313//"><h1 class="brand">Phil Hale</h1></a><h3>PG Hale Ltd.</h3></li>
-        <hr />
-        
-        <li><a href="/about">about<i class="about"></i></a></li>
-        
-        <li><a href="/pghaleltd">pghaleltd<i class="pghaleltd"></i></a></li>
-        
-        <li><a href="/posts">posts<i class="posts"></i></a></li>
-        
-        <hr />
-        <div id="social-wrapper">
-          
-            <li><a href="http://www.ravelry.com/people/philhale">Ravelry<i class="ravelry"></i></a></li>
-          
-            <li><a href="http://www.last.fm/user/halep09">Last.FM<i class="last.fm"></i></a></li>
-          
-        </div>
-      </ul>
-    </div>
-    <div class="container">
+<section class="sidebar">
+  <a href="/">
+    <img src="/images/avatar.jpg" height="75" width="75" class="avatar" />
+  </a>
+
+  <section class="name">
+    <a href="/">
+      <span id="fname">Phil</span>
+      <span id="lname">Hale</span>
+    </a>
+  </section>
 
 
+  <section class="sections">
+    <ul>
+      <li><a href="/about">about</a></li>
+      <li><a href="/pghaleltd">pg hale ltd</a></li>
+    </ul>
+  </section>
 
-<div id="article">
-  <div class="article-title">Hello</div>
-  <div class="post">
+  <hr />
+
+  <section class="sections">
+    <ul>
+      <li>
+        <a href="https://github.com/hale" target="_blank">
+        <img class="icon"src="/images/github.png"></img><span>GitHub</span></a>
+      </li>
+      <li>
+        <a href="https://twitter.com/philip_hale" target="_blank">
+        <img class="icon"src="/images/twitter.png"></img><span>Twitter</span></a>
+      </li>
+      <li>
+        <a href="http://uk.linkedin.com/in/pghale" target="_blank">
+        <img class="icon"src="/images/linkedin.png"></img><span>LinkedIn</span></a>
+      </li>
+      <hr />
+      <li>
+        <a href="http://www.ravelry.com/people/philhale" target="_blank">
+        <img class="icon" src="/images/ravelry.png"></img><span>Ravelry</span></a>
+      </li>
+      <li>
+        <a href="http://www.last.fm/user/halep09" target="_blank">
+        <img class="icon" src="/images/lastfm.png"></img><span>last.fm</span></a>
+      </li>
+      <li>
+        <a href="https://www.goodreads.com/user/show/25908326-philip-hale" target="_blank">
+        <img class="icon" src="/images/goodreads.png"></img><span>goodreads</span></a>
+      </li>
+    </ul>
+  </section>
+</section>
+
+<section class="content">
+
+
+<h1>
+  Phil Hale
+  <small>Director, PG Hale Ltd.</small>
+</h1>
+
+<div class="index">
+  <div class="aside intro">
+    <p>
+      Hello,
+    </p>
     <p>
       I create dynamic content for the web.
     </p>
@@ -91,12 +100,13 @@
   </div>
 </div>
 
-        </div> 
-  </div> 
 
-  <footer>
-    <p class="text-muted credit">&copy; . All rights reserved. </p>
-  </footer>
+<footer>
+  <img class="sig" src="/images/pghaleltd_logo.png" alt="PG Hale Ltd. Logo">
+</footer>
+
+</section> 
+
 <script data-no-instant>document.write('<script src="http://'
         + (location.host || 'localhost').split(':')[0]
 		+ ':1313/livereload.js?mindelay=10"></'

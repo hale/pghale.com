@@ -1,9 +1,15 @@
-    {{ partial "header.html" . }}
+{{ partial "header.html" . }}
 
+<h1>
+  {{ .Title }}
+  <small>{{ .Site.Params.subtitle }}</small>
+</h1>
 
-<div id="article">
-  <div class="article-title">Hello</div>
-  <div class="post">
+<div class="index">
+  <div class="aside intro">
+    <p>
+      Hello,
+    </p>
     <p>
       I create dynamic content for the web.
     </p>
@@ -25,4 +31,4 @@
   </div>
 </div>
 
-    {{ partial "footer.html" }}
+{{ partial "footer.html" }}

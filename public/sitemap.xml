@@ -7,15 +7,15 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/about/</loc>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/pghaleltd/</loc>
   </url>
   
   <url>
     <loc>http://localhost:1313/public_key/</loc>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/about/</loc>
   </url>
   
 </urlset>

@@ -14,45 +14,58 @@
   <![endif] d-->
 </head>
 <body>
-  <div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
-  <div id = "wrapper">
-    <div class="navbar navbar-default" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="{{ .Site.BaseURL }}/"><p class="navbar-brand">{{ .Site.Title }}</p></a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-          {{ $baseUrl:= .Site.BaseURL }}
-          {{range $elem := .Site.Params.links}}
-            <li><a href="{{ $baseUrl }}{{ $elem.link }}">{{ $elem.name }}</a></li>
-          {{ end }}
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
 
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-      <ul class="sidebar-nav">
-        <img src="{{ .Site.Params.ProfilePicture }}" />
-        <li class="sidebar-brand"><a href="{{ .Site.BaseURL }}/"><h1 class="brand">{{ .Site.Title }}</h1></a><h3>{{ .Site.Params.Description }}</h3></li>
-        <hr />
-        {{range $elem := .Site.Params.links}}
-        <li><a href="{{ .Site.BaseURL }}{{ $elem.link }}">{{ $elem.name }}<i class="{{ lower $elem.name }}"></i></a></li>
-        {{ end }}
-        <hr />
-        <div id="social-wrapper">
-          {{range $elem := .Site.Params.social}}
-            <li><a href="{{ $elem.link }}">{{ $elem.name }}<i class="{{ lower $elem.name }}"></i></a></li>
-          {{ end }}
-        </div>
-      </ul>
-    </div>
-    <div class="container">
+<section class="sidebar">
+  <a href="/">
+    <img src="/images/avatar.jpg" height="75" width="75" class="avatar" />
+  </a>
+
+  <section class="name">
+    <a href="/">
+      <span id="fname">Phil</span>
+      <span id="lname">Hale</span>
+    </a>
+  </section>
+
+
+  <section class="sections">
+    <ul>
+      <li><a href="/about">about</a></li>
+      <li><a href="/pghaleltd">pg hale ltd</a></li>
+    </ul>
+  </section>
+
+  <hr />
+
+  <section class="sections">
+    <ul>
+      <li>
+        <a href="https://github.com/hale" target="_blank">
+        <img class="icon"src="/images/github.png"></img><span>GitHub</span></a>
+      </li>
+      <li>
+        <a href="https://twitter.com/philip_hale" target="_blank">
+        <img class="icon"src="/images/twitter.png"></img><span>Twitter</span></a>
+      </li>
+      <li>
+        <a href="http://uk.linkedin.com/in/pghale" target="_blank">
+        <img class="icon"src="/images/linkedin.png"></img><span>LinkedIn</span></a>
+      </li>
+      <hr />
+      <li>
+        <a href="http://www.ravelry.com/people/philhale" target="_blank">
+        <img class="icon" src="/images/ravelry.png"></img><span>Ravelry</span></a>
+      </li>
+      <li>
+        <a href="http://www.last.fm/user/halep09" target="_blank">
+        <img class="icon" src="/images/lastfm.png"></img><span>last.fm</span></a>
+      </li>
+      <li>
+        <a href="https://www.goodreads.com/user/show/25908326-philip-hale" target="_blank">
+        <img class="icon" src="/images/goodreads.png"></img><span>goodreads</span></a>
+      </li>
+    </ul>
+  </section>
+</section>
+
+<section class="content">
