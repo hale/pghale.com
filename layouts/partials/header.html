@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ .Title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ .Description }}">
+  {{ .Hugo.Generator }}
+  <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+  <link href="/app.css" rel="stylesheet">
+  <script type="text/javascript" src="/app.js"></script>
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif] d-->
+</head>
+<body>
+  <div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+  <div id = "wrapper">
+    <div class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="{{ .Site.BaseURL }}/"><p class="navbar-brand">{{ .Site.Title }}</p></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          {{ $baseUrl:= .Site.BaseURL }}
+          {{range $elem := .Site.Params.links}}
+            <li><a href="{{ $baseUrl }}{{ $elem.link }}">{{ $elem.name }}</a></li>
+          {{ end }}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <img src="{{ .Site.Params.ProfilePicture }}" />
+        <li class="sidebar-brand"><a href="{{ .Site.BaseURL }}/"><h1 class="brand">{{ .Site.Title }}</h1></a><h3>{{ .Site.Params.Description }}</h3></li>
+        <hr />
+        {{range $elem := .Site.Params.links}}
+        <li><a href="{{ .Site.BaseURL }}{{ $elem.link }}">{{ $elem.name }}<i class="{{ lower $elem.name }}"></i></a></li>
+        {{ end }}
+        <hr />
+        <div id="social-wrapper">
+          {{range $elem := .Site.Params.social}}
+            <li><a href="{{ $elem.link }}">{{ $elem.name }}<i class="{{ lower $elem.name }}"></i></a></li>
+          {{ end }}
+        </div>
+      </ul>
+    </div>
+    <div class="container">

@@ -1,7 +1,0 @@
-#!/bin/sh
-jekyll build
-rsync -chavzP --stats _site/ sh4limar_pghale@ssh.phx.nearlyfreespeech.net:/home/public/
-
-HEAD=$(git rev-parse HEAD)
-touch deploys.log
-echo "$HEAD\t$(date)\t$(whoami)" >> deploys.log

@@ -1,0 +1,21 @@
+baseurl: "www.pghale.com"
+languageCode: "en-us"
+title: "Phil Hale"
+
+params:
+  ProfilePicture: "/images/avatar.jpg"
+  Description: "PG Hale Ltd."
+  AuthorName: "Phil Hale"
+
+  links:
+    - name: "about"
+      link: "/about"
+    - name: "pghaleltd"
+      link: "/pghaleltd"
+    - name: "posts"
+      link: "/posts"
+  social:
+    - name: "Ravelry"
+      link: "http://www.ravelry.com/people/philhale"
+    - name: "Last.FM"
+      link: "http://www.last.fm/user/halep09"
