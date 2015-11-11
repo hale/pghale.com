@@ -1,6 +1,6 @@
 {
-  "name": "simple-brunch",
-  "version": "0.1.0",
+  "name": "pghale.com",
+  "version": "2.0.0",
   "private": true,
   "devDependencies": {
     "brunch": "^1.8.5",
