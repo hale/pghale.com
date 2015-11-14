@@ -5,7 +5,7 @@ title: "hugo + brunch: goodbye jekyll"
 ---
 
 My search for a better static site generator started when I sought help with asset minification in
-Jekyll and all the results were from 2012.
+Jekyll and most of the results were from 2012.
 
 I expect to be able to write Coffescript, HAML and SCSS etc. and have the build tool compile and
 minify this as simply as `rake assets:precompile`.

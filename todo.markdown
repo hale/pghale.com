@@ -3,7 +3,6 @@ blog todos
 
 # design
 
-* optimize images
 * Flat, responsive redesign based on saved site in dropbox
 * Redesigned 'about' page - maybe split sections into sidebar subcategories, page for each section.
 
@@ -19,4 +18,6 @@ blog todos
 
 # content
 
-* edit & publish 'migrating to hugo' post
+# bugs
+
+* fix permalinks
