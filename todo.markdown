@@ -3,6 +3,7 @@ blog todos
 
 # design
 
+* optimize images
 * Flat, responsive redesign based on saved site in dropbox
 * Redesigned 'about' page - maybe split sections into sidebar subcategories, page for each section.
 
