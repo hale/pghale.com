@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>{{ .Title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Philip Hale, PG Hale Ltd.">
   <meta name="description" content="{{ .Description }}">
   {{ .Hugo.Generator }}
   <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
@@ -14,59 +15,59 @@
   <![endif] d-->
 </head>
 <body>
+<div id="wrapper">
+<div id="sidebar-wrapper">
+  <!-- TODO: add profile pic-->
+  <!--<a href="/">-->
+    <!--<img src="/images/avatar.jpg" height="75" width="75" class="avatar" />-->
+  <!--</a>-->
 
-<section class="sidebar">
-  <a href="/">
-    <img src="/images/avatar.jpg" height="75" width="75" class="avatar" />
-  </a>
-
-  <section class="name">
-    <a href="/">
-      <span id="fname">Phil</span>
-      <span id="lname">Hale</span>
-    </a>
-  </section>
+  <div class="sidebar-title">
+    <h1 id="site-title"><a href="http://www.pghale.com">Phil Hale</a></h1>
+    <p class="lead blog-description">PG Hale Ltd.</p>
+  </div>
 
 
-  <section class="sections">
-    <ul>
-      <li><a href="/about">about me</a></li>
-      <li><a href="/pghaleltd">pg hale ltd</a></li>
-      <li><a href="/post">posts</a></li>
-    </ul>
-  </section>
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item"><a href="/about">about me</a></li>
+    <li class="sidebar-nav-item"><a href="/pghaleltd">pg hale ltd</a></li>
+    <li class="sidebar-nav-item"><a href="/post">posts</a></li>
 
-  <hr />
+    <!--<hr />-->
 
-  <section class="sections">
-    <ul>
-      <li>
-        <a href="https://github.com/hale" target="_blank">
-        <img class="icon"src="/images/github.png"></img><span>GitHub</span></a>
-      </li>
-      <li>
-        <a href="https://twitter.com/philip_hale" target="_blank">
-        <img class="icon"src="/images/twitter.png"></img><span>Twitter</span></a>
-      </li>
-      <li>
-        <a href="http://uk.linkedin.com/in/pghale" target="_blank">
-        <img class="icon"src="/images/linkedin.png"></img><span>LinkedIn</span></a>
-      </li>
-      <hr />
-      <li>
-        <a href="http://www.ravelry.com/people/philhale" target="_blank">
-        <img class="icon" src="/images/ravelry.png"></img><span>Ravelry</span></a>
-      </li>
-      <li>
-        <a href="http://www.last.fm/user/halep09" target="_blank">
-        <img class="icon" src="/images/lastfm.png"></img><span>last.fm</span></a>
-      </li>
-      <li>
-        <a href="https://www.goodreads.com/user/show/25908326-philip-hale" target="_blank">
-        <img class="icon" src="/images/goodreads.png"></img><span>goodreads</span></a>
-      </li>
-    </ul>
-  </section>
-</section>
+    <!--<ul class="work">-->
+      <!--<li>-->
+        <!--<a href="https://github.com/hale" target="_blank">-->
+        <!--<img class="icon"alt="github" src="/images/github.png"></a>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="https://twitter.com/philip_hale" target="_blank">-->
+        <!--<img class="icon"alt="twitter" src="/images/twitter.png"></a>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="http://uk.linkedin.com/in/pghale" target="_blank">-->
+        <!--<img class="icon"alt="linkedin" src="/images/linkedin.png"></a>-->
+      <!--</li>-->
+    <!--</ul>-->
 
-<section class="content">
+    <!--<hr />-->
+
+    <!--<ul class="personal">-->
+      <!--<li>-->
+        <!--<a href="http://www.ravelry.com/people/philhale" target="_blank">-->
+        <!--<img class="icon" alt="ravelry" src="/images/ravelry.png"></a>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="http://www.last.fm/user/halep09" target="_blank">-->
+        <!--<img class="icon" alt="lastfm" src="/images/lastfm.png"></a>-->
+      <!--</li>-->
+      <!--<li>-->
+        <!--<a href="https://www.goodreads.com/user/show/25908326-philip-hale" target="_blank">-->
+        <!--<img class="icon"alt="goodreads"  src="/images/goodreads.png"></a>-->
+      <!--</li>-->
+    <!--</ul>-->
+</ul>
+</div>
+
+<section id="content-wrapper">
+  <div class="posts">
