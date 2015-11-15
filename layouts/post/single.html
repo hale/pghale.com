@@ -1,12 +1,12 @@
 {{ partial "header" . }}
 
 <div class="post">
-  <h1>
+  <h2>
     {{ title .Title }}
     <small>
       {{ .Date.Format "January 01 2006" }}
     </small>
-  </h1>
+  </h2>
 
   {{ .Content }}
 
