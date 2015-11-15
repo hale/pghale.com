@@ -13,24 +13,17 @@ minify this as simply as `rake assets:precompile`.
 With that in mind I decided to expand my horizons a little and reimplement this site using a
 newer set of tools.
 
-## hugo
+### hugo
 
 I was attracted to Hugo because of its great documentation and large selection of well designed
-sites in the showcase.
-
-I also love how it uses context and convention over configuration.  To get started you need only
-install a theme and write content in markdown.  Then you can ease into customizing the layouts by
-adding snippets of content that override the theme defaults.
-
-It's easier to see than explain, so I'll leave it at that and encourage you to read the
-documentation for more details.
+sites in the showcase. Also, it's written in Go which will make a nice change from Ruby.
 
 One problem: [Hugo doesn't minify assets or support SCSS/Coffescript][hugo_preprocessors].
 
 The solution offered in the support ticket is to "bring your own build tool". Leaving aside whether
 this a good move for the project, the idea does appeal to me. "Do one thing, and do it well".
 
-## brunch
+### brunch
 
 Brunch is one of many "`make`for the web" tools floating around (if you thought indie band names
 were ridiculous...). They are all basically the same:
@@ -47,7 +40,7 @@ It was surprisingly easy to make Brunch work with Hugo. Understanding how they a
 does have a learning curve, but there is almost no configuration or customization which is a very
 good sign: as both projects mature they should continue to work together.
 
-## hugo + brunch
+### hugo + brunch
 
 Here's how it works:
 
@@ -84,7 +77,7 @@ recommendations should look something like this:
 
 (See also: [this part of the Brunch guide][just_a_couple_files].)
 
-## content creation
+### content creation
 
 1. By convention `app/assets` will get copied without processing, so put things here like images,
    favicon.ico, CNAME.
@@ -106,7 +99,7 @@ recommendations should look something like this:
 
 4. Create content with `hugo new post/post-title`
 
-## deployment
+### deployment
 
 For development, run `brunch watch` and `hugo server -w --buildDrafts` in separate windows.  As you
 edit files in `app`, Brunch spits them into `static` and Hugo copies the output into `public`.
@@ -124,7 +117,7 @@ And that's it!
 ![brunch hugo server](/images/hugo_brunch_server.png)
 
 
-## closing thoughts
+### closing thoughts
 
 I suspect this is a very Rails-y way of thinking. In my view, that the locations of files inform how
 they are processed isn't magical or brittle. This way of thinking ensures alignment between what we
