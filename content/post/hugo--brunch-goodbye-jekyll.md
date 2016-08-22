@@ -1,6 +1,7 @@
 ---
 date: "2015-11-10T23:25:20Z"
 title: "hugo + brunch: goodbye jekyll"
+draft: true
 
 ---
 
