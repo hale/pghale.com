@@ -6,3 +6,5 @@ rsync -chavzP --delete --stats public/ sh4limar_pghale@ssh.phx.nearlyfreespeech.
 HEAD=$(git rev-parse HEAD)
 touch deploys.log
 echo "$HEAD\t$(date)\t$(whoami)" >> deploys.log
+git add deploys.log
+git commit -m 'Deploy'
