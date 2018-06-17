@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html><head><meta charset="utf-8" content="text/html" http-equiv="Content-Type" /><meta content="
-Cryptopals challenges in Clojure.
+
+Cryptopals challenges in Clojure. ![CircleCI](https://circleci.com/gh/hale/cryptopals.svg?style=svg)
 
 [A collection of 48 exercises that demonstrate attacks on real-world crypto.](https://cryptopals.com/)
 
@@ -11,10 +12,19 @@ info to learn about the underlying crypto concepts yourself. When you're
 finished, you'll not only have learned a good deal about how cryptosystems are
 built, but you'll also understand how they're attacked.
 
-&lt;br /&gt;
-&lt;h2&gt;&lt;strong&gt;WORK IN PROGRESS&lt;/strong&gt;!&lt;small&gt;  This notice will remain in place
-until I have completed the challenges and tidied up the documentation.&lt;/small&gt;&lt;/h2&gt;
-&lt;br /&gt; &lt;br /&gt; &lt;br /&gt;
+**Work in progress:**
+
+* &lt;s&gt;Start&lt;/s&gt; 24th May 2018
+* &lt;s&gt;Set 1&lt;/s&gt; 17th June 2018
+* Set 2
+* Set 3
+* Set 4
+* Set 5
+* Set 6
+* Set 7
+* Set 8
+
+
 " name="description" /><style type="text/css">/**
  * SyntaxHighlighter
  * http://alexgorbatchev.com/SyntaxHighlighter
@@ -2881,7 +2891,7 @@ net.brehaut.ClojureTools = (function (SH) {
     build_tree: build_tree
   };
 })(SyntaxHighlighter);
-</script><title>hale.cryptopals -- Marginalia</title></head><body><table><tr><td class="docs"><div class="header"><h1 class="project-name"><a href="https://github.com/hale/cryptopals">hale.cryptopals</a></h1><h2 class="project-version">0.1.0-SNAPSHOT</h2><br /><p>Cryptopals challenges in Clojure.</p>
+</script><title>hale.cryptopals -- Marginalia</title></head><body><table><tr><td class="docs"><div class="header"><h1 class="project-name"><a href="https://github.com/hale/cryptopals">hale.cryptopals</a></h1><h2 class="project-version">0.1.0-SNAPSHOT</h2><br /><p>Cryptopals challenges in Clojure. <img src="https://circleci.com/gh/hale/cryptopals.svg?style=svg" alt="CircleCI" /></p>
 
 <p><a href="https://cryptopals.com/">A collection of 48 exercises that demonstrate attacks on real-world crypto.</a></p>
 
@@ -2892,12 +2902,19 @@ info to learn about the underlying crypto concepts yourself. When you're
 finished, you'll not only have learned a good deal about how cryptosystems are
 built, but you'll also understand how they're attacked.</p>
 
-<p><br /></p>
+<p><strong>Work in progress:</strong></p>
 
-<h2><strong>WORK IN PROGRESS</strong>!<small>  This notice will remain in place
-until I have completed the challenges and tidied up the documentation.</small></h2>
-
-<p><br /> <br /> <br /></p>
+<ul>
+<li><s>Start</s> 24th May 2018</li>
+<li><s>Set 1</s> 17th June 2018</li>
+<li>Set 2</li>
+<li>Set 3</li>
+<li>Set 4</li>
+<li>Set 5</li>
+<li>Set 6</li>
+<li>Set 7</li>
+<li>Set 8</li>
+</ul>
 </div><div class="dependencies"><h3>dependencies</h3><table><tr><td class="dep-name">org.clojure/clojure</td><td class="dotted"><hr /></td><td class="dep-version">1.9.0</td></tr></table></div></td><td class="codes" style="text-align: center; vertical-align: middle;color: #666;padding-right:20px"><br /><br /><br />(this space intentionally left almost blank)</td></tr><tr><td class="docs"><div class="toc"><a name="toc"><h3>namespaces</h3></a><ul><li><a href="#hale.cryptopals.set1">hale.cryptopals.set1</a></li><li><a href="#hale.cryptopals.set1.challenge1">hale.cryptopals.set1.challenge1</a></li><li><a href="#hale.cryptopals.set1.challenge2">hale.cryptopals.set1.challenge2</a></li><li><a href="#hale.cryptopals.set1.challenge3">hale.cryptopals.set1.challenge3</a></li><li><a href="#hale.cryptopals.set1.challenge4">hale.cryptopals.set1.challenge4</a></li><li><a href="#hale.cryptopals.set1.challenge5">hale.cryptopals.set1.challenge5</a></li><li><a href="#hale.cryptopals.set1.challenge6">hale.cryptopals.set1.challenge6</a></li><li><a href="#hale.cryptopals.set1.challenge7">hale.cryptopals.set1.challenge7</a></li><li><a href="#hale.cryptopals.set1.challenge8">hale.cryptopals.set1.challenge8</a></li><li><a href="#hale.cryptopals.utils">hale.cryptopals.utils</a></li></ul></div></td><td class="codes">&nbsp;</td></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#hale.cryptopals.set1" name="hale.cryptopals.set1"><h1 class="project-name">hale.cryptopals.set1</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><h2>Crypto Challenge Set 1</h2>
 
 <p>This is the <strong>qualifying set</strong>. We picked the exercises in it to ramp
@@ -2911,25 +2928,7 @@ longer than that. It took Alex two weeks to get through the set!</p>
 <p>If you've written any crypto code in the past, you're going to feel like
 skipping a lot of this. <strong>Don't skip them</strong>. At least two of them (we won't
 say which) are important stepping stones to later attacks.</p>
-</td><td class="codes"><pre class="brush: clojure">(ns hale.cryptopals.set1)</pre></td></tr><tr><td class="docs"><p>TODO:</p>
-</td><td class="codes"></td></tr><tr><td class="docs"><ol>
-<li>Base64 algorithm:
-a. Handle input that isn't a multiple of three (padding)
-c. Swap 'unsafe' hex-to-bytes for a safer hex lookup (dict?)</li>
-<li>Roll your own bitCount function</li>
-<li>Make everything lazy?</li>
-<li>Roll your own AES implementation</li>
-<li>Make 'implement repeating key XOR' a command line function.
-<ol><li>Make it a binary using GraalVM.</li></ol></li>
-<li>Layer on clojure spec for the public fns.</li>
-<li>experiment with generative testing based on specs</li>
-<li>Profile with YourKit / VisualVM.
-<ol><li>This revealed that chi-square is a hotspot, as well as the basic
-division and multiplication fns. I think this is because many of the
-numbers get really large with that default value of 0.00001 for missing
-observations. Look into making that value smaller.</li></ol></li>
-</ol>
-</td><td class="codes"></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#hale.cryptopals.set1.challenge1" name="hale.cryptopals.set1.challenge1"><h1 class="project-name">hale.cryptopals.set1.challenge1</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><h1>Base64 encode a hex string</h1>
+</td><td class="codes"><pre class="brush: clojure">(ns hale.cryptopals.set1)</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#hale.cryptopals.set1.challenge1" name="hale.cryptopals.set1.challenge1"><h1 class="project-name">hale.cryptopals.set1.challenge1</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><h1>Base64 encode a hex string</h1>
 </td><td class="codes"></td></tr><tr><td class="docs"><p>The string:</p>
 
 <pre><code>49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d
@@ -2943,7 +2942,7 @@ observations. Look into making that value smaller.</li></ol></li>
 <p>So go ahead and make that happen. You'll need to use this code for the rest
 of the exercises.</p>
 
-<p><strong>Cryptopals Rule: Always operate on raw bytes, never on encoded strings. Only use hex and base64 for pretty-printing</strong></p>
+<p>Cryptopals Rule: Always operate on raw bytes, never on encoded strings. Only use hex and base64 for pretty-printing.</p>
 
 <hr />
 </td><td class="codes"><pre class="brush: clojure">(ns hale.cryptopals.set1.challenge1
@@ -3012,8 +3011,10 @@ namespace, as it's something we'll be using a lot in these exercises.</p>
 </td><td class="codes"><pre class="brush: clojure">(def hex-to-base64
   (comp base64-encode utils/hex-to-bytes))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(t/deftest test-hex-to-base64
-  (t/is (= (hex-to-base64 &quot;49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d&quot;)
-         &quot;SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t&quot;)))</pre></td></tr><tr><td class="docs"><h2>Decode</h2>
+  (t/is (= (hex-to-base64
+            (str &quot;49276d206b696c6c696e6720796f757220627261696e206c&quot;
+                 &quot;696b65206120706f69736f6e6f7573206d757368726f6f6d&quot;))
+            &quot;SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t&quot;)))</pre></td></tr><tr><td class="docs"><h2>Decode</h2>
 
 <p>Decoding simply reads from the above table backwards:</p>
 
@@ -3047,14 +3048,12 @@ namespace, as it's something we'll be using a lot in these exercises.</p>
         triples   (map base64-reduce-bytes quads)]
     (flatten triples)))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(t/deftest test-base64-decode
-  (t/is (= &quot;49276d206b696c6c696e6720796f757220627261696e206c696b65206120706f69736f6e6f7573206d757368726f6f6d&quot;
-           (utils/bytes-to-hex (base64-decode &quot;SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t&quot;))))
-  (def base64-to-str (comp utils/bytes-to-str base64-decode)))</pre></td></tr><tr><td class="docs"><p>TODO: make base64-to-str output padding '===' chars
-(t/deftest test-base64-to-str
-  (let [decoded "Man is distinguished, not only by his reason, but by"
-        encoded (.encode (Base64/getEncoder) (.getBytes decoded))]
-    (t/is (= decoded (s/base64-to-str encoded) ))))</p>
-</td><td class="codes"></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#hale.cryptopals.set1.challenge2" name="hale.cryptopals.set1.challenge2"><h1 class="project-name">hale.cryptopals.set1.challenge2</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><h1>Fixed XOR</h1>
+  (t/is (= (str &quot;49276d206b696c6c696e6720796f757220627261696e206c&quot;
+                &quot;696b65206120706f69736f6e6f7573206d757368726f6f6d&quot;)
+           (utils/bytes-to-hex
+            (base64-decode
+             &quot;SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t&quot;)))))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(def base64-to-str (comp utils/bytes-to-str base64-decode))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#hale.cryptopals.set1.challenge2" name="hale.cryptopals.set1.challenge2"><h1 class="project-name">hale.cryptopals.set1.challenge2</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><h1>Fixed XOR</h1>
 
 <p>Write a function that takes two equal-length buffers and produces their XOR
 combination.</p>
@@ -3276,15 +3275,31 @@ single-character XOR. Find it.</p>
         result  (detect-single-char-xor strings)]
     (t/is (= (:in result) &quot;7b5a4215415d544115415d5015455447414c155c46155f4058455c5b523f&quot;))
     (t/is (= (:out result) &quot;Now that the party is jumping\n&quot;))
-    (t/is (= (:char result) \5))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#hale.cryptopals.set1.challenge5" name="hale.cryptopals.set1.challenge5"><h1 class="project-name">hale.cryptopals.set1.challenge5</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
+    (t/is (= (:char result) \5))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#hale.cryptopals.set1.challenge5" name="hale.cryptopals.set1.challenge5"><h1 class="project-name">hale.cryptopals.set1.challenge5</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><h1>Implement repeating-key XOR</h1>
+
+<p>Here is the opening stanza of an important work of the English language:</p>
+
+<pre><code>Burning 'em, if you ain't quick and nimble
+I go crazy when I hear a cymbal
+</code></pre>
+
+<p>Encrypt it, under the key "ICE", using repeating-key XOR.</p>
+
+<p>In repeating-key XOR, you'll sequentially apply each byte of the key; the
+first byte of plaintext will be XOR'd against I, the next C, the next E, then
+I again for the 4th byte, and so on.</p>
+
+<p>It should come out to:</p>
+
+<p>   0b3637272a2b2e63622c2e69692a23693a2a3c6324202d623d63343c2a26226324272765272
+   a282b2f20430a652e2c652a3124333a653e2b2027630c692b20283165286326302e27282f</p>
+
+<p>Encrypt a bunch of stuff using your repeating-key XOR function. Encrypt your
+mail. Encrypt your password file. Your .sig file. Get a feel for it. I
+promise, we aren't wasting your time with this.</p>
 </td><td class="codes"><pre class="brush: clojure">(ns hale.cryptopals.set1.challenge5
   (:require [clojure.test :as t]
-            [hale.cryptopals.utils :as utils]))</pre></td></tr><tr><td class="docs"><p>===============</p>
-
-<h1>  CHALLENGE 5</h1>
-
-<p>Implement repeating-key XOR</p>
-</td><td class="codes"></td></tr><tr><td class="docs"><p>Set 1 :: Challenge 5 :: Implement repeating-key XOR</p>
+            [hale.cryptopals.utils :as utils]))</pre></td></tr><tr><td class="docs"><p>Set 1 :: Challenge 5 :: Implement repeating-key XOR</p>
 
 <p>  Encodes an input string using the given key</p>
 </td><td class="codes"><pre class="brush: clojure">(defn repeating-key-xor
@@ -3298,7 +3313,9 @@ single-character XOR. Find it.</p>
         key   &quot;ICE&quot;
         result (repeating-key-xor key input)]
     (t/is (= result
-           &quot;0b3637272a2b2e63622c2e69692a23693a2a3c6324202d623d63343c2a26226324272765272a282b2f20430a652e2c652a3124333a653e2b2027630c692b20283165286326302e27282f&quot;))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#hale.cryptopals.set1.challenge6" name="hale.cryptopals.set1.challenge6"><h1 class="project-name">hale.cryptopals.set1.challenge6</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><h1>Break repeating-key XOR</h1>
+             (str &quot;0b3637272a2b2e63622c2e69692a23693a2a3c6324202d623d63343c2a262263&quot;
+                  &quot;24272765272a282b2f20430a652e2c652a3124333a653e2b2027630c692b2028&quot;
+                  &quot;3165286326302e27282f&quot;)))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#hale.cryptopals.set1.challenge6" name="hale.cryptopals.set1.challenge6"><h1 class="project-name">hale.cryptopals.set1.challenge6</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><h1>Break repeating-key XOR</h1>
 
 <p><strong>It is officially on, now.</strong> This challenge isn't conceptually hard, but it
 involves actual error-prone coding. The other challenges in this set are
@@ -3347,7 +3364,7 @@ important.</p>
             [clojure.string :as str]
             [hale.cryptopals.utils :as utils]
             [hale.cryptopals.set1.challenge1 :as base64]
-            [hale.cryptopals.set1.challenge3 :as challenge3]))</pre></td></tr><tr><td class="docs"><p>TODO: write your own Hamming weight fn (although hotspot calls a CPU instruction on Core processors :))</p>
+            [hale.cryptopals.set1.challenge3 :as challenge3]))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(defn- edit-distance-bytes
   [b1 b2]
   (let [xored      (map bit-xor b1 b2)
@@ -3491,7 +3508,7 @@ equally likely).</p>
     (t/is (= expected actual))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#hale.cryptopals.utils" name="hale.cryptopals.utils"><h1 class="project-name">hale.cryptopals.utils</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(ns hale.cryptopals.utils
   (:require [clojure.test :as t]
-            [clojure.string :as str]))</pre></td></tr><tr><td class="docs"><p>TODO: UNSAFE -- interprets string as hex using read-string</p>
+            [clojure.string :as str]))</pre></td></tr><tr><td class="docs"><p>FIXME: UNSAFE -- interprets string as hex using read-string</p>
 </td><td class="codes"><pre class="brush: clojure">(defn hex-to-bytes
   [hex] (let [chars (partition 2 hex)
               parse-chars (fn [[c1 c2]] (read-string (str &quot;0x&quot; c1 c2)))]
