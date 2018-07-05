@@ -2979,8 +2979,8 @@ namespace, as it's something we'll be using a lot in these exercises.</p>
 
 <hr />
 </td><td class="codes"><pre class="brush: clojure">(def base64-map
-  { 0 \A  1 \B  2 \C  3 \D  4 \E  5 \F  6 \G  7 \H
-    8 \I  9 \J 10 \K 11 \L 12 \M 13 \N 14 \O 15 \P
+  {  0 \A  1 \B  2 \C  3 \D  4 \E  5 \F  6 \G  7 \H
+     8 \I  9 \J 10 \K 11 \L 12 \M 13 \N 14 \O 15 \P
     16 \Q 17 \R 18 \S 19 \T 20 \U 21 \V 22 \W 23 \X
     24 \Y 25 \Z 26 \a 27 \b 28 \c 29 \d 30 \e 31 \f
     32 \g 33 \h 34 \i 35 \j 36 \k 37 \l 38 \m 39 \n
@@ -2989,27 +2989,50 @@ namespace, as it's something we'll be using a lot in these exercises.</p>
     56 \4 57 \5 58 \6 59 \7 60 \8 61 \9 62 \+ 63 \/ })</pre></td></tr><tr><td class="docs"><p>Base64 byte-expansion procedure, to reduce the number of possible values per
   byte from 256 to 64.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn base64-expand-bytes
-  [bytes-in]
-  (let [[b1 b2 b3] bytes-in
-        c1 (bit-shift-right b1 2)                             ; first 6 bits of b1
-        c2 (bit-or (bit-shift-left (bit-and 2r00000011 b1) 4) ; last 2 bits of b1 plus first 4 bits of b2
-                   (bit-shift-right b2 4))
-        c3 (bit-or (bit-shift-left (bit-and 2r00001111 b2) 2) ; last 4 bits of b2 plus first 2 bits of b3
-                   (bit-shift-right b3 6))
-        c4 (bit-and 2r00111111 b3)]                           ; last 6 bits of b3
-    [c1 c2 c3 c4]))</pre></td></tr><tr><td class="docs">
+  ([b1]
+   (let [c1 (bit-shift-right b1 2)
+         c2 (bit-or (bit-shift-left (bit-and 2r00000011 b1) 4)
+                    (byte 0))]
+     [c1 c2 nil nil]))
+  ([b1 b2]
+   (let [c1 (bit-shift-right b1 2)
+         c2 (bit-or (bit-shift-left (bit-and 2r00000011 b1) 4)
+                    (bit-shift-right b2 4))
+         c3 (bit-or (bit-shift-left (bit-and 2r00001111 b2) 2)
+                    (byte 0))]
+     [c1 c2 c3 nil]))
+  ([b1 b2 b3]
+   (let [c1 (bit-shift-right b1 2)                             ; first 6 bits of b1
+         c2 (bit-or (bit-shift-left (bit-and 2r00000011 b1) 4) ; last 2 bits of b1 plus first 4 bits of b2
+                    (bit-shift-right b2 4))
+         c3 (bit-or (bit-shift-left (bit-and 2r00001111 b2) 2) ; last 4 bits of b2 plus first 2 bits of b3
+                    (bit-shift-right b3 6))
+         c4 (bit-and 2r00111111 b3)]                           ; last 6 bits of b3
+   [c1 c2 c3 c4])))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(t/deftest test-base64-expand-bytes
-  (t/is (= (base64-expand-bytes [2r01001101 2r01100001 2r01101110])
-         [2r00010011 2r00010110 2r00000101 2r00101110] [19 22 5 46])))</pre></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(t/deftest test-base64-expand-bytes-2
-  (t/is (= (base64-expand-bytes (map byte [77 97 110]))
-         (map byte [19 22 5 46]))))</pre></td></tr><tr><td class="docs"><p>Base64 encode a stream of bytes</p>
+  (t/is (= (apply base64-expand-bytes [2r01001101 2r01100001 2r01101110])
+           [2r00010011 2r00010110 2r00000101 2r00101110] [19 22 5 46]))
+  (t/is (= (apply base64-expand-bytes (map byte [77 97 110]))
+           (map byte [19 22 5 46])))
+  (t/is (= (apply base64-expand-bytes (map byte [77 0 0]))
+           (map byte [19 16 0 0])))
+  (t/is (= (apply base64-expand-bytes (map byte [77 97 0]))
+           (map byte [19 22 4 0]))))</pre></td></tr><tr><td class="docs"><p>Base64 encode a stream of bytes</p>
 </td><td class="codes"><pre class="brush: clojure">(defn base64-encode
   [bytes]
-  (let [triples (partition 3 bytes)
-        quads   (map base64-expand-bytes triples)
-        chars   (map base64-map (flatten quads))]
-    (apply str chars)))</pre></td></tr><tr><td class="docs"><p>Set 1 :: Challenge 1 :: Base64 encode a hex string</p>
+  (let [triples (partition 3 3 [] bytes)
+        quads   (map (partial apply base64-expand-bytes) triples)
+        chars   (map (fn [k] (get base64-map k \=)) (flatten quads))]
+    (apply str chars)))</pre></td></tr><tr><td class="docs">
+</td><td class="codes"><pre class="brush: clojure">(def base64-encode-str (comp base64-encode utils/str-to-bytes))</pre></td></tr><tr><td class="docs"><p>Test vectors from <a href="https://tools.ietf.org/html/rfc4648#section-10">RFC4648</a></p>
+</td><td class="codes"><pre class="brush: clojure">(t/deftest test-base64-encode
+  (t/is (=          (base64-encode-str )))
+  (t/is (= &quot;Zg==&quot;     (base64-encode-str &quot;f&quot;)))
+  (t/is (= &quot;Zm8=&quot;     (base64-encode-str &quot;fo&quot;)))
+  (t/is (= &quot;Zm9v&quot;     (base64-encode-str &quot;foo&quot;)))
+  (t/is (= &quot;Zm9vYg==&quot; (base64-encode-str &quot;foob&quot;)))
+  (t/is (= &quot;Zm9vYmE=&quot; (base64-encode-str &quot;fooba&quot;)))
+  (t/is (= &quot;Zm9vYmFy&quot; (base64-encode-str &quot;foobar&quot;))))</pre></td></tr><tr><td class="docs"><p>Set 1 :: Challenge 1 :: Base64 encode a hex string</p>
 </td><td class="codes"><pre class="brush: clojure">(def hex-to-base64
   (comp base64-encode utils/hex-to-bytes))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(t/deftest test-hex-to-base64
@@ -3018,7 +3041,7 @@ namespace, as it's something we'll be using a lot in these exercises.</p>
                  &quot;696b65206120706f69736f6e6f7573206d757368726f6f6d&quot;))
             &quot;SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t&quot;)))</pre></td></tr><tr><td class="docs"><h2>Decode</h2>
 
-<p>Decoding simply reads from the above table backwards:</p>
+<p>Decoding reads from the above table backwards:</p>
 
 <ol>
 <li>Reverse lookup the Base64 map to get the index.</li>
@@ -3029,33 +3052,50 @@ namespace, as it's something we'll be using a lot in these exercises.</p>
 </td><td class="codes"><pre class="brush: clojure">(def base64-chars (set (vals base64-map)))</pre></td></tr><tr><td class="docs"><p>Base64 reinflation procedure, to remove the zero-padding and turn the
   sequence of six-bit bytes back in to regular 8-bit bytes.</p>
 </td><td class="codes"><pre class="brush: clojure">(defn base64-reduce-bytes
-  [bytes-in]
-  (let [[b1 b2 b3 b4] bytes-in
-        c1 (bit-or (bit-shift-left b1 2)                  ; b1, shifted left to make room
-                   (bit-shift-right b2 4))                ; first 2 bits of b2
-        c2 (bit-or (bit-shift-left (bit-and 2r1111 b2) 4) ; last 4 bits of b2
-                   (bit-shift-right b3 2))                ; first 4 bits of b3
-        c3 (bit-or (bit-shift-left (bit-and 2r11 b3) 6)   ; last 4 bits of b3
-                   b4)]                                   ; b4
-    [c1 c2 c3]))</pre></td></tr><tr><td class="docs">
+  ([b1 b2]
+   (let [c1 (bit-or (bit-shift-left b1 2)
+                    (bit-shift-right b2 4))]
+     [c1]))
+  ([b1 b2 b3]
+   (let [c1 (bit-or (bit-shift-left b1 2)
+                    (bit-shift-right b2 4))
+         c2 (bit-or (bit-shift-left (bit-and 2r1111 b2) 4)
+                    (bit-shift-right b3 2))]
+     [c1 c2]))
+  ([b1 b2 b3 b4]
+   (let [c1 (bit-or (bit-shift-left b1 2)                  ; b1 shifted to make room
+                    (bit-shift-right b2 4))                ; first 2 bits of b2
+         c2 (bit-or (bit-shift-left (bit-and 2r1111 b2) 4) ; last 4 bits of b2
+                    (bit-shift-right b3 2))                ; first 4 bits of b3
+         c3 (bit-or (bit-shift-left (bit-and 2r11 b3) 6)   ; last 4 bits of b3
+                    b4)]                                   ; b4
+     [c1 c2 c3])))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(t/deftest test-base64-reduce-bytes
-  (t/is (= (base64-reduce-bytes [2r00010011 2r00010110 2r00000101 2r00101110])
+  (t/is (= (apply base64-reduce-bytes [2r00010011 2r00010110 2r00000101 2r00101110])
          [2r01001101 2r01100001 2r01101110])))</pre></td></tr><tr><td class="docs"><p>Decode a base64 encoded string (or bytestream)</p>
 </td><td class="codes"><pre class="brush: clojure">(defn base64-decode
   [str]
   (let [chars     (map char str)
         sanitized (filter (partial contains? base64-chars) chars)
         indices   (map (map-invert base64-map) sanitized)
-        quads     (partition 4 (map byte indices))
-        triples   (map base64-reduce-bytes quads)]
+        quads     (partition 4 4 [] (map byte indices))
+        triples   (map (partial apply base64-reduce-bytes) quads)]
     (flatten triples)))</pre></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(t/deftest test-base64-decode
+</td><td class="codes"><pre class="brush: clojure">(t/deftest test-base64-decode-long
   (t/is (= (str &quot;49276d206b696c6c696e6720796f757220627261696e206c&quot;
                 &quot;696b65206120706f69736f6e6f7573206d757368726f6f6d&quot;)
            (utils/bytes-to-hex
             (base64-decode
              &quot;SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t&quot;)))))</pre></td></tr><tr><td class="docs">
-</td><td class="codes"><pre class="brush: clojure">(def base64-to-str (comp utils/bytes-to-str base64-decode))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#hale.cryptopals.set1.challenge2" name="hale.cryptopals.set1.challenge2"><h1 class="project-name">hale.cryptopals.set1.challenge2</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><h1>Fixed XOR</h1>
+</td><td class="codes"><pre class="brush: clojure">(def base64-to-str (comp utils/bytes-to-str base64-decode))</pre></td></tr><tr><td class="docs"><p>Test vectors from <a href="https://tools.ietf.org/html/rfc4648#section-10">RFC4648</a></p>
+</td><td class="codes"><pre class="brush: clojure">(t/deftest test-base64-decode
+  (t/is (=        (base64-to-str )))
+  (t/is (= &quot;f&quot;      (base64-to-str &quot;Zg==&quot;)))
+  (t/is (= &quot;fo&quot;     (base64-to-str &quot;Zm8=&quot;)))
+  (t/is (= &quot;foo&quot;    (base64-to-str &quot;Zm9v&quot;)))
+  (t/is (= &quot;fooba&quot;  (base64-to-str &quot;Zm9vYmE=&quot;)))
+  (t/is (= &quot;foobar&quot; (base64-to-str &quot;Zm9vYmFy&quot;)))
+  (t/is (= &quot;foob&quot;   (base64-to-str &quot;Zm9vYg==&quot;))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#hale.cryptopals.set1.challenge2" name="hale.cryptopals.set1.challenge2"><h1 class="project-name">hale.cryptopals.set1.challenge2</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><h1>Fixed XOR</h1>
 
 <p>Write a function that takes two equal-length buffers and produces their XOR
 combination.</p>
@@ -3416,10 +3456,8 @@ important.</p>
 </td><td class="codes"><pre class="brush: clojure">(def decrypt-repeating-key-xor-base64
   (comp decrypt-repeating-key-xor base64/base64-decode))</pre></td></tr><tr><td class="docs">
 </td><td class="codes"><pre class="brush: clojure">(t/deftest test-decrypt-repeating-key-xor
-  (let [ciphertext (slurp &quot;data/s1c6.txt&quot;)
-        e-lines (str/split (slurp &quot;data/s1c6.solution.txt&quot;) #&quot;\n&quot;)
-        a-lines (str/split (decrypt-repeating-key-xor-base64 ciphertext) #&quot;\n&quot;)]
-    (t/is (every? (fn [[expected actual]] (= expected actual)) (zipmap e-lines a-lines)))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#hale.cryptopals.set1.challenge7" name="hale.cryptopals.set1.challenge7"><h1 class="project-name">hale.cryptopals.set1.challenge7</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><h1>AES in ECB mode</h1>
+  (t/is (= (decrypt-repeating-key-xor-base64 (slurp &quot;data/s1c6.txt&quot;))
+           (slurp &quot;data/s1c6.solution.txt&quot;))))</pre></td></tr><tr><td class="spacer docs">&nbsp;</td><td class="codes" /></tr><tr><td class="docs"><div class="docs-header"><a class="anchor" href="#hale.cryptopals.set1.challenge7" name="hale.cryptopals.set1.challenge7"><h1 class="project-name">hale.cryptopals.set1.challenge7</h1><a class="toc-link" href="#toc">toc</a></a></div></td><td class="codes" /></tr><tr><td class="docs"><h1>AES in ECB mode</h1>
 
 <p>The Base64-encoded content in this file has been encrypted via AES-128 in ECB
 mode under the key:</p>
