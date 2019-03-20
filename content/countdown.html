@@ -3,90 +3,76 @@ slug: "countdown"
 title: "Countdown"
 ---
 
+<div class="clockdiv" data-deadline="2/1/2017">
+  <h1>San Francisco</h1>
+  <img src="/images/countdown/offsite_1.JPG">
+</div>
+
 <div class="clockdiv" data-deadline="5/25/2017">
   <h1>Chicago</h1>
-  <img src="/images/chicago.png">
-  <div>
-    <span class="days"></span>
-    <div class="smalltext">Days</div>
-  </div>
-  <div>
-    <span class="hours"></span>
-    <div class="smalltext">Hours</div>
-  </div>
-  <div>
-    <span class="minutes"></span>
-    <div class="smalltext">Minutes</div>
-  </div>
-  <div>
-    <span class="seconds"></span>
-    <div class="smalltext">Seconds</div>
-  </div>
+  <img src="/images/countdown/chicago.png">
 </div>
 
 <div class="clockdiv" data-deadline="7/15/2017">
   <h1>Victoria</h1>
-<img src="/images/victoria.png">
-  <div>
-    <span class="days"></span>
-    <div class="smalltext">Days</div>
-  </div>
-  <div>
-    <span class="hours"></span>
-    <div class="smalltext">Hours</div>
-  </div>
-  <div>
-    <span class="minutes"></span>
-    <div class="smalltext">Minutes</div>
-  </div>
-  <div>
-    <span class="seconds"></span>
-    <div class="smalltext">Seconds</div>
-  </div>
+  <img src="/images/countdown/victoria.png">
 </div>
 
-
 <div class="clockdiv" data-deadline="11/24/2017">
-  <h1>England</h1>
-<img src="/images/port-isaac.jpg">
-  <div>
-    <span class="days"></span>
-    <div class="smalltext">Days</div>
-  </div>
-  <div>
-    <span class="hours"></span>
-    <div class="smalltext">Hours</div>
-  </div>
-  <div>
-    <span class="minutes"></span>
-    <div class="smalltext">Minutes</div>
-  </div>
-  <div>
-    <span class="seconds"></span>
-    <div class="smalltext">Seconds</div>
-  </div>
+  <h1>Newlyn</h1>
+  <img src="/images/countdown/port-isaac.jpg">
 </div>
 
 <div class="clockdiv" data-deadline="12/9/2017">
   <h1>Sweden</h1>
-<img src="/images/sweden.png">
-  <div>
-    <span class="days"></span>
-    <div class="smalltext">Days</div>
-  </div>
-  <div>
-    <span class="hours"></span>
-    <div class="smalltext">Hours</div>
-  </div>
-  <div>
-    <span class="minutes"></span>
-    <div class="smalltext">Minutes</div>
-  </div>
-  <div>
-    <span class="seconds"></span>
-    <div class="smalltext">Seconds</div>
-  </div>
+  <img src="/images/countdown/sweden.png">
 </div>
+
+<div class="clockdiv" data-deadline="3/4/2018">
+  <h1>Four Words</h1>
+  <img src="/images/countdown/four_words.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="3/25/2018">
+  <h1>Mexico</h1>
+  <img src="/images/countdown/mexico.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="4/25/2018">
+  <h1>Wedding #1</h1>
+  <img src="/images/countdown/victoria_wedding.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="7/19/2018">
+  <h1>Clifton</h1>
+  <img src="/images/countdown/hag_do.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="11/21/2018">
+  <h1>Venice</h1>
+  <img src="/images/countdown/venice.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="12/29/2018">
+  <h1>Wedding #2</h1>
+  <img src="/images/countdown/clevedon_wedding.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="4/23/2019">
+  <h1>Seattle</h1>
+  <img src="/images/countdown/seattle.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="7/1/2019">
+  <h1>Hawaii</h1>
+  <img src="/images/countdown/hawaii.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="9/16/2019">
+  <h1>Corfu</h1>
+  <img src="/images/countdown/corfu.jpg">
+</div>
+
 
 <style>
   body{
@@ -103,6 +89,7 @@ title: "Countdown"
 
   .clockdiv > img {
     position: relative;
+    width: 100%;
   }
 
   .clockdiv{
@@ -135,39 +122,54 @@ title: "Countdown"
   }
 </style>
 
+
 <script>
-  function getTimeRemaining(endtime) {
-    var t = Date.parse(endtime) - Date.parse(new Date());
-    var seconds = Math.floor((t / 1000) % 60);
-    var minutes = Math.floor((t / 1000 / 60) % 60);
-    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-    var days = Math.floor(t / (1000 * 60 * 60 * 24));
-    return {
-      'total': t,
-      'days': days,
-      'hours': hours,
-      'minutes': minutes,
-      'seconds': seconds
-    };
-  }
+
+  var clockHTML = " \
+    <div> \
+      <span class='years'></span> \
+      <div class='smalltext'>Years</div> \
+    </div> \
+    <div> \
+      <span class='months'></span> \
+      <div class='smalltext'>Months</div> \
+    </div> \
+    <div> \
+      <span class='days'></span> \
+      <div class='smalltext'>Days</div> \
+    </div> \
+    <div> \
+      <span class='hours'></span> \
+      <div class='smalltext'>Hours</div> \
+    </div> \
+    <div> \
+      <span class='minutes'></span> \
+      <div class='smalltext'>Minutes</div> \
+    </div> \
+    <div> \
+      <span class='seconds'></span> \
+      <div class='smalltext'>Seconds</div> \
+    </div>"
 
   function initializeClock(clock, endtime) {
+    clock.insertAdjacentHTML('beforeend', clockHTML);
+
+    var yearsSpan = clock.querySelector('.years');
+    var monthsSpan = clock.querySelector('.months');
     var daysSpan = clock.querySelector('.days');
     var hoursSpan = clock.querySelector('.hours');
     var minutesSpan = clock.querySelector('.minutes');
     var secondsSpan = clock.querySelector('.seconds');
 
     function updateClock() {
-      var t = getTimeRemaining(endtime);
+      var duration = moment.duration(moment(endtime).diff(moment()))
 
-      daysSpan.innerHTML = t.days;
-      hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-      minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-      if (t.total <= 0) {
-        clearInterval(timeinterval);
-      }
+      daysSpan.innerHTML = duration.days();
+      monthsSpan.innerHTML = duration.months();
+      yearsSpan.innerHTML = duration.years();
+      hoursSpan.innerHTML = duration.hours();
+      minutesSpan.innerHTML = duration.minutes();
+      secondsSpan.innerHTML = duration.seconds();
     }
 
     updateClock();
