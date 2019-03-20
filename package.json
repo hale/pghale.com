@@ -1,11 +1,10 @@
 {
   "name": "pghale.com",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "devDependencies": {
-    "brunch": "^1.8.5",
-    "javascript-brunch": "^1.8.0",
-    "sass-brunch": "^1.9.1",
-    "imageoptmizer-brunch": "^0.0.4"
+    "brunch": "^2",
+    "babel-brunch": "^6",
+    "sass-brunch": "^2"
   }
 }

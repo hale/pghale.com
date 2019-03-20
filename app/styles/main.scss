@@ -47,24 +47,19 @@ img {
     margin-bottom: 0.5em;
   }
 
-  img {
-    display: block;
-    margin-right: auto;
-    margin-left: auto; 
-  }
-
-
   .info {
-    margin-right: auto;
     margin-left: auto;
-    /*width: 85%;*/
     margin-bottom: 1em;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
     img {
       border: none;
       float: left;
-      max-height: 7em;
+      max-height: 5em;
       max-width: 10em;
-      padding-top: 6%;
     }
 
     ul {
