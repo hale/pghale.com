@@ -1,5 +1,5 @@
 #!/bin/sh
-brunch build -P
+brunch build
 hugo
 rsync -chavzP --stats public/ sh4limar_pghale@ssh.phx.nearlyfreespeech.net:/home/public/
 
