@@ -5,9 +5,8 @@
   "devDependencies": {
     "babel-brunch": "^6",
     "brunch": "^2",
-    "sass-brunch": "^2"
-  },
-  "dependencies": {
-    "moment": "^2.24.0"
+    "sass-brunch": "^2",
+    "imagemin": "^6.1.0",
+    "imagemin-brunch": "^1.1.0"
   }
 }
