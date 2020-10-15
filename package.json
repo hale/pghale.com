@@ -3,10 +3,10 @@
   "version": "2.1.0",
   "private": true,
   "devDependencies": {
-    "babel-brunch": "^6",
-    "brunch": "^2",
-    "sass-brunch": "^2",
-    "imagemin": "^6.1.0",
+    "babel-brunch": "^7",
+    "brunch": "^3",
+    "sass-brunch": "^3",
+    "imagemin": "^7",
     "imagemin-brunch": "^1.1.0"
   }
 }
