@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Countdown</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Philip Hale, PG Hale Ltd.">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.84.0" />
+  <link href="/app.css" rel="stylesheet">
+  <script type="text/javascript" src="/app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js"></script>
+  
+</head>
+<body>
+<div id="wrapper">
+<div id="sidebar-wrapper">
+  
+  
+    
+  
+
+  <div class="sidebar-title">
+    <h1 id="site-title"><a href="/">Philip Hale</a></h1>
+    <p class="lead blog-description">PG Hale Ltd.</p>
+  </div>
+
+
+  <ul class="sidebar-nav">
+    <li class="sidebar-nav-item"><a href="/about">about me</a></li>
+    <li class="sidebar-nav-item"><a href="/pghaleltd">pg hale ltd</a></li>
+    <li class="sidebar-nav-item"><a href="/cryptopals">cryptopals</a></li>
+
+    <hr />
+
+    <li class="sidebar-nav-item">
+      <a href="https://github.com/hale" target="_blank">
+        <img class="icon" src="/images/github-green.png" alt="github-icon" />
+        <span>GitHub</span>
+      </a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="https://twitter.com/philip_hale" target="_blank">
+        <img class="icon"src="/images/twitter-green.png" alt="twitter-icon" />
+        <span>Twitter</span>
+      </a>
+    </li>
+    <li class="sidebar-nav-item">
+      <a href="http://uk.linkedin.com/in/pghale" target="_blank">
+        <img class="icon"src="/images/linkedin-green.png" alt="linkedin-icon" />
+        <span>LinkedIn</span>
+      </a>
+    </li>
+
+
+    
+      
+      
+    
+    
+      
+      
+    
+    
+      
+      
+    
+
+
+    
+
+    
+      
+        
+        
+      
+      
+        
+        
+      
+      
+        
+        
+      
+    
+
+    
+
+    
+      
+        
+        
+      
+      
+        
+        
+      
+      
+        
+        
+      
+    
+</ul>
+</div>
+
+<style>
+  .sidebar-nav-item img.icon {
+    width: 16px;
+    filter: #21610b;
+  }
+
+  .sidebar-nav hr {
+    margin-top:28px;
+    margin-bottom:28px;
+    border:0;
+  }
+</style>
+
+
+<section id="content-wrapper">
+  <div class="posts">
+
+
+<div class="post">
+  <h2>Countdown</h2>
+
+  
+<div class="clockdiv" data-deadline="2/1/2017">
+  <h1>San Francisco</h1>
+  <img src="/images/countdown/offsite_1.JPG">
+</div>
+
+<div class="clockdiv" data-deadline="5/25/2017">
+  <h1>Chicago</h1>
+  <img src="/images/countdown/chicago.png">
+</div>
+
+<div class="clockdiv" data-deadline="7/15/2017">
+  <h1>Victoria</h1>
+  <img src="/images/countdown/victoria.png">
+</div>
+
+<div class="clockdiv" data-deadline="11/24/2017">
+  <h1>Newlyn</h1>
+  <img src="/images/countdown/port-isaac.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="12/9/2017">
+  <h1>Sweden</h1>
+  <img src="/images/countdown/sweden.png">
+</div>
+
+<div class="clockdiv" data-deadline="3/4/2018">
+  <h1>Four Words</h1>
+  <img src="/images/countdown/four_words.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="3/25/2018">
+  <h1>Mexico</h1>
+  <img src="/images/countdown/mexico.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="4/25/2018">
+  <h1>Wedding #1</h1>
+  <img src="/images/countdown/victoria_wedding.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="7/19/2018">
+  <h1>Clifton</h1>
+  <img src="/images/countdown/hag_do.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="11/21/2018">
+  <h1>Venice</h1>
+  <img src="/images/countdown/venice.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="12/29/2018">
+  <h1>Wedding #2</h1>
+  <img src="/images/countdown/clevedon_wedding.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="4/23/2019">
+  <h1>Seattle</h1>
+  <img src="/images/countdown/seattle.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="7/1/2019">
+  <h1>Hawaii</h1>
+  <img src="/images/countdown/hawaii.jpg">
+</div>
+
+<div class="clockdiv" data-deadline="9/16/2019">
+  <h1>Corfu</h1>
+  <img src="/images/countdown/corfu.jpg">
+</div>
+
+
+<style>
+  body{
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 100;
+  }
+
+  h1{
+    font-weight: 100;
+    font-size: 40px;
+    margin: 10px;
+  }
+
+  .clockdiv > img {
+    position: relative;
+    width: 100%;
+  }
+
+  .clockdiv{
+    font-family: sans-serif;
+    color: black;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+    background: #eee;
+    margin-bottom: 100px;
+  }
+
+  .clockdiv > div{
+    padding: 10px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+
+  .clockdiv div > span{
+  }
+
+  .smalltext{
+    padding-top: 5px;
+    font-size: 16px;
+  }
+
+  .clockdiv {
+    position: relative;
+  }
+</style>
+
+
+<script>
+
+  var clockHTML = " \
+    <div> \
+      <span class='years'></span> \
+      <div class='smalltext'>Years</div> \
+    </div> \
+    <div> \
+      <span class='months'></span> \
+      <div class='smalltext'>Months</div> \
+    </div> \
+    <div> \
+      <span class='days'></span> \
+      <div class='smalltext'>Days</div> \
+    </div> \
+    <div> \
+      <span class='hours'></span> \
+      <div class='smalltext'>Hours</div> \
+    </div> \
+    <div> \
+      <span class='minutes'></span> \
+      <div class='smalltext'>Minutes</div> \
+    </div> \
+    <div> \
+      <span class='seconds'></span> \
+      <div class='smalltext'>Seconds</div> \
+    </div>"
+
+  function initializeClock(clock, endtime) {
+    clock.insertAdjacentHTML('beforeend', clockHTML);
+
+    var yearsSpan = clock.querySelector('.years');
+    var monthsSpan = clock.querySelector('.months');
+    var daysSpan = clock.querySelector('.days');
+    var hoursSpan = clock.querySelector('.hours');
+    var minutesSpan = clock.querySelector('.minutes');
+    var secondsSpan = clock.querySelector('.seconds');
+
+    function updateClock() {
+      var duration = moment.duration(moment(endtime).diff(moment()))
+
+      daysSpan.innerHTML = duration.days();
+      monthsSpan.innerHTML = duration.months();
+      yearsSpan.innerHTML = duration.years();
+      hoursSpan.innerHTML = duration.hours();
+      minutesSpan.innerHTML = duration.minutes();
+      secondsSpan.innerHTML = duration.seconds();
+    }
+
+    updateClock();
+    var timeinterval = setInterval(updateClock, 1000);
+  }
+
+  $(document).ready(function() {
+    $(".clockdiv").each(function(i) {
+      var str = $(this).data("deadline");
+      var deadline = new Date(Date.parse(str));
+      initializeClock(this, deadline);
+    });
+  });
+
+</script>
+
+
+</div>
+
+<section class="meta">
+  <hr>
+  <section class="copy">
+    <div class="avatar">
+      <a href="https://twitter.com/philip_hale" target="_blank">
+        <img src="/images/avatar-2019-03-20.jpg?s=142" alt="phil hale"/>
+      </a>
+    </div>
+    <div class="avatar-content">
+      <p>
+      Thanks for looking! Send me a message on Twitter for the
+      fastest response, or add me on LinkedIn for more info.
+      </p>
+  </div>
+  </section>
+</section>
+
+
+<footer>
+  <img class="sig" src="/images/pghaleltd_logo.png" alt="PG Hale Ltd. Logo">
+
+</footer>
+</div>
+</section> 
+
+</div>
+</body>
+</html>
+
